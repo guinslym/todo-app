@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoListItem/> snapshot When completed set to false should render correctly 1`] = `
+<li
+  style={
+    Object {
+      "textDecoration": "none",
+    }
+  }
+>
+  <span
+    onClick={[Function]}
+  >
+    First list item
+  </span>
+   
+  <span
+    onClick={[Function]}
+  >
+    X
+  </span>
+</li>
+`;
+
+exports[`<TodoListItem/> snapshot When completed set to true should render correctly 1`] = `
+<li
+  style={
+    Object {
+      "textDecoration": "line-through",
+    }
+  }
+>
+  <span
+    onClick={[Function]}
+  >
+    First list item
+  </span>
+   
+  <span
+    onClick={[Function]}
+  >
+    X
+  </span>
+</li>
+`;

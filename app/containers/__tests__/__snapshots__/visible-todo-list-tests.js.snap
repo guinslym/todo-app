@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VisibleTodoList/> snapshot should render correctly 1`] = `
+<ul>
+  <li
+    style={
+      Object {
+        "textDecoration": "line-through",
+      }
+    }
+  >
+    <span
+      onClick={[Function]}
+    >
+      Test value 1
+    </span>
+     
+    <span
+      onClick={[Function]}
+    >
+      X
+    </span>
+  </li>
+  <li
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    <span
+      onClick={[Function]}
+    >
+      Test value 2
+    </span>
+     
+    <span
+      onClick={[Function]}
+    >
+      X
+    </span>
+  </li>
+</ul>
+`;

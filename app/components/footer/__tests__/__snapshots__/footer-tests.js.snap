@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer/> snapshot should render correctly 1`] = `
+<p>
+  Show:
+   
+  <a
+    href="#"
+    onClick={[Function]}
+  >
+    All
+  </a>
+   | 
+  <a
+    href="#"
+    onClick={[Function]}
+  >
+    Active
+  </a>
+   | 
+  <a
+    href="#"
+    onClick={[Function]}
+  >
+    Completed
+  </a>
+</p>
+`;

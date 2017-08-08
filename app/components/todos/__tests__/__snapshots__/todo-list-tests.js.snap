@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoList/> snapshot should render correctly 1`] = `
+<ul>
+  <li
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    <span
+      onClick={[Function]}
+    >
+      First list item
+    </span>
+     
+    <span
+      onClick={[Function]}
+    >
+      X
+    </span>
+  </li>
+  <li
+    style={
+      Object {
+        "textDecoration": "line-through",
+      }
+    }
+  >
+    <span
+      onClick={[Function]}
+    >
+      Second list item
+    </span>
+     
+    <span
+      onClick={[Function]}
+    >
+      X
+    </span>
+  </li>
+  <li
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    <span
+      onClick={[Function]}
+    >
+      Third list item
+    </span>
+     
+    <span
+      onClick={[Function]}
+    >
+      X
+    </span>
+  </li>
+</ul>
+`;

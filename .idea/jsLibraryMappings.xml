@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{jest-DefinitelyTyped, node_modules, react-DefinitelyTyped, react-props-decorators-DefinitelyTyped, react-router-DefinitelyTyped}" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilterLink/> snapshot When "store.visibilityFilter" and "props.filter" do not match should render "Link" as a "href" element 1`] = `
+<a
+  href="#"
+  onClick={[Function]}
+>
+  Mock Value
+</a>
+`;
+
+exports[`<FilterLink/> snapshot When "store.visibilityFilter" and "props.filter" match should render "Link" as a "span" element 1`] = `
+<span>
+  Mock Value
+</span>
+`;
