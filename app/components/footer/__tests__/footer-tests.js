@@ -1,11 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
 import { shallow } from 'enzyme';
+import { MemoryRouter as Router } from 'react-router-dom';
 import Footer from '../index';
-
-const mockStore = configureStore();
 
 describe('<Footer/>', () => {
   let component;
@@ -16,7 +13,7 @@ describe('<Footer/>', () => {
     expect(component.length).toBeTruthy();
   });
 
-  it('should display the footer text', () => {
+  it('should display the footer paragraph element', () => {
     expect(component.find('p')).toBePresent();
   });
 
@@ -25,8 +22,7 @@ describe('<Footer/>', () => {
 describe('<Footer/> snapshot', () => {
 
   it('should render correctly', () => {
-    let store = mockStore([]);
-    const tree = renderer.create(<Provider store={store}><Footer /></Provider>).toJSON();
+    const tree = renderer.create(<Router><Footer /></Router>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

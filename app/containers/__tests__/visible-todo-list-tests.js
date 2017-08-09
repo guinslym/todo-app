@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { shallow } from 'enzyme';
+import { MemoryRouter as Router } from 'react-router-dom';
 import VisibleTodoList, { mapStateToProps, mapDispatchToProps, getVisibleTodos } from '../visible-todo-list';
 
 const mockStore = configureStore();
@@ -78,11 +79,13 @@ describe('<VisibleTodoList/>', () => {
 
 });
 
-// describe('<VisibleTodoList/> snapshot', () => {
-//
-//   it('should render correctly', () => {
-//     const tree = renderer.create(<VisibleTodoList store={store}/>).toJSON();
-//     expect(tree).toMatchSnapshot();
-//   });
-//
-// });
+describe('<VisibleTodoList/> snapshot', () => {
+
+  it('should render correctly', () => {
+    const tree = renderer.create(
+      <Router><VisibleTodoList store={store}/></Router>
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+});

@@ -1,66 +1,71 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import configureStore from 'redux-mock-store';
-import { shallow } from 'enzyme';
-import FilterLink, { mapStateToProps, mapDispatchToProps } from '../index';
+import { mount } from 'enzyme';
+import { MemoryRouter as Router } from 'react-router-dom';
+import FilterLink from '../index';
 
-const mockStore = configureStore();
-const dispatch = jasmine.createSpy('dispatch');
-
-const MOCK_VALUE = 'Mock Value';
-const FILTER_SHOW_ALL = 'SHOW_ALL';
-const FILTER_SHOW_COMPLETED = 'SHOW_COMPLETED';
-const TEST_STATE = { todos: [], visibilityFilter: FILTER_SHOW_ALL, };
-const OWN_PROPS = { filter: FILTER_SHOW_ALL, children: 'Completed' };
-const DISPATCH_RESULT = { filter: FILTER_SHOW_ALL, type: 'SET_VISIBILITY_FILTER' };
-
-const store = mockStore(TEST_STATE);
+const FILTER_VALUE_ALL = 'all';
+const FILTER_VALUE_COMPLETED = 'completed';
+const LINK_TEXT = 'Link Text';
 
 describe('<FilterLink/>', () => {
   let wrapper;
 
+  beforeEach(() => {
+    wrapper = mount(
+      <Router><FilterLink filter={ FILTER_VALUE_ALL }>{ LINK_TEXT }</FilterLink></Router>
+    );
+  });
+
   it('should render', () => {
-    wrapper = shallow(<FilterLink store={store} filter={FILTER_SHOW_ALL}>{MOCK_VALUE}</FilterLink>);
     expect(wrapper.length).toBeTruthy();
   });
 
-  describe('mapStateToProps', () => {
-
-    describe('When "store.visibilityFilter" and "ownProps.filter" match', () => {
-
-      it('should set "active" prop to true', () => {
-        const state = { visibilityFilter: FILTER_SHOW_ALL, };
-        const ownProps = { filter: FILTER_SHOW_ALL, };
-        const props = mapStateToProps(state, ownProps);
-
-        expect(props.active).toEqual(true);
-      });
-
-    });
-
-    describe('When "store.visibilityFilter" and "ownProps.filter" do not match', () => {
-
-      it('should set "active" prop to false', () => {
-        const state = { visibilityFilter: FILTER_SHOW_ALL, };
-        const ownProps = { filter: FILTER_SHOW_COMPLETED, };
-        const props = mapStateToProps(state, ownProps);
-
-        expect(props.active).toEqual(false);
-      });
-
-    });
-
+  it('should always render a NavLink', () => {
+    const link = wrapper.find('NavLink');
+    expect(link.length).toEqual(1);
   });
 
-  describe('mapDispatchToProps', () => {
+  it('should render the child value in NavLink', () => {
+    const link = wrapper.find('NavLink');
+    expect(link.text().trim()).toEqual('Link Text');
+  });
 
-    it('should set a prop for onLinkClick', () => {
-      expect(mapDispatchToProps().onLinkClick).toBeDefined();
+  it('should render the child value in NavLink', () => {
+    const link = wrapper.find('NavLink');
+    expect(link.text().trim()).toEqual('Link Text');
+  });
+
+  describe('NavLink "to" value', () => {
+
+    describe('When "to" is equal to "all"', () => {
+
+      beforeEach(() => {
+        wrapper = mount(
+          <Router><FilterLink filter={ FILTER_VALUE_ALL }>{ LINK_TEXT }</FilterLink></Router>
+        );
+      });
+
+      it('should render the correct to value', () => {
+        const link = wrapper.find('NavLink');
+        expect(link.first().props().to).toEqual('/');
+      });
+
     });
 
-    it('should dispatch an event for onLinkClick', () => {
-      mapDispatchToProps(dispatch, OWN_PROPS).onLinkClick();
-      expect(dispatch).toHaveBeenCalledWith(DISPATCH_RESULT);
+    describe('When "to" is not equal to "all"', () => {
+
+      beforeEach(() => {
+        wrapper = mount(
+          <Router><FilterLink filter={ FILTER_VALUE_COMPLETED }>{ LINK_TEXT }</FilterLink></Router>
+        );
+      });
+
+      it('should render the correct to value', () => {
+        const link = wrapper.find('NavLink');
+        expect(link.first().props().to).toEqual('/' + FILTER_VALUE_COMPLETED);
+      });
+
     });
 
   });
@@ -68,36 +73,12 @@ describe('<FilterLink/>', () => {
 });
 
 describe('<FilterLink/> snapshot', () => {
-  let tree;
 
-  describe('When "store.visibilityFilter" and "props.filter" match', () => {
-
-    beforeEach(() => {
-      const filter = 'SHOW_ALL';
-      tree = renderer.create(
-        <FilterLink store={store} filter={filter}>{MOCK_VALUE}</FilterLink>
-      ).toJSON();
-    });
-
-    it('should render "Link" as a "span" element', () => {
-      expect(tree).toMatchSnapshot();
-    });
-
-  });
-
-  describe('When "store.visibilityFilter" and "props.filter" do not match', () => {
-
-    beforeEach(() => {
-      const filter = 'SHOW_COMPLETED';
-      tree = renderer.create(
-        <FilterLink store={store} filter={filter}>{MOCK_VALUE}</FilterLink>
-      ).toJSON();
-    });
-
-    it('should render "Link" as a "href" element', () => {
-      expect(tree).toMatchSnapshot();
-    });
-
+  it('should render correctly', () => {
+    const tree = renderer.create(
+      <Router><FilterLink filter={ FILTER_VALUE_ALL }>{ LINK_TEXT }</FilterLink></Router>
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
 });

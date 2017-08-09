@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoApp/> snapshot should render correctly 1`] = `
+<section>
+  <h1>
+    Todo App
+  </h1>
+  <section>
+    <form
+      onSubmit={[Function]}
+    >
+      <input />
+      <button
+        type="submit"
+      >
+        Add todo
+      </button>
+    </form>
+  </section>
+  <ul />
+  <p>
+    Show:
+     
+    <a
+      className="active"
+      href="/"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+          "textDecoration": "none",
+        }
+      }
+    >
+      All
+    </a>
+     | 
+    <a
+      className={undefined}
+      href="/active"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Active
+    </a>
+     | 
+    <a
+      className={undefined}
+      href="/completed"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Completed
+    </a>
+  </p>
+</section>
+`;

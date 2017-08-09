@@ -15,7 +15,9 @@ describe('<TodoList/>', () => {
   let component;
 
   beforeEach(() => {
-    component = mount(<TodoList todos={TODOS} onToggleTodoClick={onToggleTodoClick} onDeleteTodoClick={onDeleteTodoClick}/>);
+    component = mount(<TodoList todos={TODOS}
+                                onToggleTodoClick={onToggleTodoClick}
+                                onDeleteTodoClick={onDeleteTodoClick}/>);
   });
 
   it('should render', () => {
@@ -41,7 +43,9 @@ describe('<TodoList/>', () => {
 describe('<TodoList/> snapshot', () => {
 
   it('should render correctly', () => {
-    const tree = renderer.create(<TodoList todos={TODOS} onToggleTodoClick={onToggleTodoClick} onDeleteTodoClick={onDeleteTodoClick}/>).toJSON();
+    const tree = renderer.create(<TodoList todos={TODOS}
+                                           onToggleTodoClick={onToggleTodoClick}
+                                           onDeleteTodoClick={onDeleteTodoClick}/>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

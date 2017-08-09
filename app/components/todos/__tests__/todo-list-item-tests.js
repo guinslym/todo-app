@@ -12,7 +12,9 @@ describe('<TodoListItem/>', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<TodoListItem onToggleClick={onToggleClick} onDeleteClick={onDeleteClick} {...LIST_ITEM_NOT_COMPLETED}/>);
+    component = shallow(<TodoListItem onToggleClick={onToggleClick}
+                                      onDeleteClick={onDeleteClick}
+                                      {...LIST_ITEM_NOT_COMPLETED}/>);
   });
 
   it('should render', () => {
@@ -60,7 +62,9 @@ describe('<TodoListItem/>', () => {
     describe('When completed is false', () => {
 
       beforeEach(() => {
-        component = shallow(<TodoListItem onToggleClick={onToggleClick} onDeleteClick={onDeleteClick} {...LIST_ITEM_COMPLETED}/>);
+        component = shallow(<TodoListItem onToggleClick={onToggleClick}
+                                          onDeleteClick={onDeleteClick}
+                                          {...LIST_ITEM_COMPLETED}/>);
       });
 
       it('should set text-decoration to "line-through"', () => {
@@ -78,7 +82,9 @@ describe('<TodoListItem/> snapshot', () => {
   describe('When completed set to false', () => {
 
     it('should render correctly', () => {
-      const tree = renderer.create(<TodoListItem onToggleClick={onToggleClick} onDeleteClick={onDeleteClick} {...LIST_ITEM_NOT_COMPLETED}/>).toJSON();
+      const tree = renderer.create(<TodoListItem onToggleClick={onToggleClick}
+                                                 onDeleteClick={onDeleteClick}
+                                                 {...LIST_ITEM_NOT_COMPLETED}/>).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -87,7 +93,9 @@ describe('<TodoListItem/> snapshot', () => {
   describe('When completed set to true', () => {
 
     it('should render correctly', () => {
-      const tree = renderer.create(<TodoListItem onToggleClick={onToggleClick} onDeleteClick={onDeleteClick} {...LIST_ITEM_COMPLETED}/>).toJSON();
+      const tree = renderer.create(<TodoListItem onToggleClick={onToggleClick}
+                                                 onDeleteClick={onDeleteClick}
+                                                 {...LIST_ITEM_COMPLETED}/>).toJSON();
       expect(tree).toMatchSnapshot();
     });
 

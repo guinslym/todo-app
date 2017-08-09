@@ -5,22 +5,33 @@ exports[`<Footer/> snapshot should render correctly 1`] = `
   Show:
    
   <a
-    href="#"
+    className="active"
+    href="/"
     onClick={[Function]}
+    style={
+      Object {
+        "color": "black",
+        "textDecoration": "none",
+      }
+    }
   >
     All
   </a>
    | 
   <a
-    href="#"
+    className={undefined}
+    href="/active"
     onClick={[Function]}
+    style={undefined}
   >
     Active
   </a>
    | 
   <a
-    href="#"
+    className={undefined}
+    href="/completed"
     onClick={[Function]}
+    style={undefined}
   >
     Completed
   </a>
